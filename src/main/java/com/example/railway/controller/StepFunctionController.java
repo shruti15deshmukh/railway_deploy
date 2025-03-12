@@ -19,12 +19,12 @@ public class StepFunctionController {
         // Step 1: Validate Order
         Map<String, Object> validateRequest = new HashMap<>();
         validateRequest.put("orderId", request.get("orderId"));
-        String validateResponse = restTemplate.postForObject("https://your-railway-url/validate", validateRequest, String.class);
+        String validateResponse = restTemplate.postForObject("https://railwaydeploy-production-37e2.up.railway.app/validate", validateRequest, String.class);
 
         // Step 2: Process Payment
         Map<String, Object> paymentRequest = new HashMap<>();
         paymentRequest.put("amount", request.get("amount"));
-        String paymentResponse = restTemplate.postForObject("https://your-railway-url/process", paymentRequest, String.class);
+        String paymentResponse = restTemplate.postForObject("https://railwaydeploy-production-37e2.up.railway.app/process", paymentRequest, String.class);
 
         // Return results
         Map<String, String> response = new HashMap<>();
